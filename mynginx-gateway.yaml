@@ -28,6 +28,6 @@ spec:
         exact: /
     route:
     - destination:
-        host: productpage
+        host: mynginx
         port:
           number: 80 
