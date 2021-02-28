@@ -9,6 +9,4 @@ spec:
     targetPort: 80
   selector:
     run: mynginx
-    app.kubernetes.io/instance: mynginx
-    app.kubernetes.io/name: nginx-servier
   type: NodePort
