@@ -25,6 +25,6 @@ spec:
   http:
   - route:
     - destination:
-        host: mynginx
+        host: "*"
         port:
           number: 80 
