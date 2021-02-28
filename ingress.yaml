@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
@@ -14,12 +14,12 @@ spec:
   rules:
   - http:
       paths:
-      - backend:
+      - path: /*
+        backend:
           service:
             name: mynginx
             port:
-              number: 80
-        path: /*
+              number: 80       
         pathType: Prefix
 status:
   loadBalancer: {}
