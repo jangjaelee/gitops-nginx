@@ -15,8 +15,10 @@ spec:
   - http:
       paths:
       - backend:
-          serviceName: mynginx
-          servicePort: 80
+          service
+            name: mynginx
+            port:
+              number: 80
         path: /*
         pathType: Prefix
 status:
