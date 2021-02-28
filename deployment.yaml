@@ -12,6 +12,7 @@ spec:
       labels:
         run: mynginx
     spec:
+      serviceAccountName: mynginx    
       containers:
       - image: nginx
         name: mynginx
