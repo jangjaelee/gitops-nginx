@@ -8,14 +8,14 @@ metadata:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: instance
     kubernetes.io/ingress.class: alb
-  name: mynginx
+  name: myapp-1
   namespace: default
 spec:
   rules:
   - http:
       paths:
       - backend:
-          serviceName: mynginx
+          serviceName: myapp-1
           servicePort: 80
         path: /*
         pathType: Prefix
