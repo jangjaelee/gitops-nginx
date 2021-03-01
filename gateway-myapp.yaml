@@ -25,8 +25,8 @@ spec:
   http:
   - match:
     - uri:
-	    exact: /nginx
-	route:
+	exact: /nginx
+    route:
     - destination:
         host: myapp-1
         port:
