@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: mynginx
+  namespace: gitops-nginx
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: shop.awx.kr
+    http:
+      paths:
+      - path: /helloworld
+        backend:
+          serviceName: helloworld
+          servicePort: 80
+      - path: /myapp
+        backend:
+          serviceName: myapp-1
+          servicePort: 80
