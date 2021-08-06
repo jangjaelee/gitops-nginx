@@ -18,7 +18,7 @@ spec:
             port:
               name: http
         pathType: Prefix
-      - path: /myapp
+      - path: /
         backend:
           service:
             name: myapp-1
