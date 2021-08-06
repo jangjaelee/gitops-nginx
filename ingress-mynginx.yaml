@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: shop.awx.kr
+  - host: helloworld.awx.kr
     http:
       paths:
       - path: /helloworld
