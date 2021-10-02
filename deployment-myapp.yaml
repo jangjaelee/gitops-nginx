@@ -1,22 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp-1
   labels:
     app: nginx
+  name: myapp-1
 spec:
-  replicas: 3
   selector:
     matchLabels:
       app: nginx
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
   template:
     metadata:
       labels:
         app: nginx
     spec:
-      serviceAccountName: mynginx
       containers:
       - image: nginx
+        imagePullPolicy: Always
         name: nginx
         ports:
         - containerPort: 80
+          protocol: TCP
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      serviceAccount: mynginx
+      serviceAccountName: mynginx
+      terminationGracePeriodSeconds: 30
