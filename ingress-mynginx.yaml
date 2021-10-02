@@ -9,16 +9,12 @@ spec:
     http:
       paths:
       - backend:
-          service:
-            name: helloworld
-            port:
-              name: http
+          serviceName: helloworld
+          servicePort: 80
         path: /hello
         pathType: Prefix
       - backend:
-          service:
-            name: myapp-1
-            port:
-              name: http
+          serviceName: myapp-1
+          servicePort: 80
         path: /
         pathType: Prefix
