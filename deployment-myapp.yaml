@@ -27,6 +27,6 @@ spec:
           protocol: TCP
       dnsPolicy: ClusterFirst
       restartPolicy: Always
-      serviceAccount: mynginx
-      serviceAccountName: mynginx
+      #serviceAccount: mynginx
+      #serviceAccountName: mynginx
       terminationGracePeriodSeconds: 30
