@@ -6,6 +6,7 @@ metadata:
     app: helloworld
     version: v2
 spec:
+  nodeName: k8s-w2-dragon
   replicas: 1
   selector:
     matchLabels:
