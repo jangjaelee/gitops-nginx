@@ -19,7 +19,7 @@ spec:
         app: nginx
     spec:
       containers:
-      - image: nginx
+      - image: docker.io/library/nginx
         imagePullPolicy: Always
         name: nginx
         ports:
