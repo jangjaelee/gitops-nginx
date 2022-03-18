@@ -26,3 +26,6 @@ spec:
         imagePullPolicy: IfNotPresent #Always
         ports:
         - containerPort: 5000
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
