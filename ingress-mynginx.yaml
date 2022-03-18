@@ -4,7 +4,7 @@ metadata:
   name: mynginx
   namespace: gitops-nginx
   annotations:
-    #nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/backend-protocol: HTTP
 spec:
   ingressClassName: nginx
   rules:
