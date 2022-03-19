@@ -5,7 +5,6 @@ metadata:
     app: nginx
   name: myapp-1
 spec:
-  nodeName: k8s-w3-dragon
   selector:
     matchLabels:
       app: nginx
