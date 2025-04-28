@@ -1,0 +1,23 @@
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: HTTPRoute
+metadata:
+  labels:
+    app: awx-api-test
+    environment: dev
+    istio: ingressgateway
+  name: awx-api-test-public
+spec:
+  hostnames:
+    - test-canary.awx.kr
+  parentRefs:
+    - name: public-gateway
+      namespace: istio-system
+  rules:
+    - backendRefs:
+        - kind: Service
+          name: awx-api-test
+          port: 80
+      matches:
+        - path:
+            type: PathPrefix
+            value: /
