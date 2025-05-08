@@ -1,0 +1,24 @@
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: HTTPRoute
+metadata:
+  labels:
+    app: myapp
+    version: v1    
+    environment: dev
+    istio: ingressgateway
+  name: myapp-v1
+spec:
+  hostnames:
+    - myapp.awx.kr
+  parentRefs:
+    - name: public-gateway
+      namespace: istio-system
+  rules:
+    - backendRefs:
+        - kind: Service
+          name: myapp-v1-service
+          port: 80       
+      matches:
+        - path:
+            type: PathPrefix
+            value: /
