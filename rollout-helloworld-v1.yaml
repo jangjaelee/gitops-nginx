@@ -18,8 +18,8 @@ spec:
       version: v1
   strategy:
     canary:
-      canaryService: canary-service
-      stableService: stable-service
+      canaryService: helloworld-service-canary
+      stableService: helloworld-service-stable
       canaryMetadata:
         annotations:
           role: canary
