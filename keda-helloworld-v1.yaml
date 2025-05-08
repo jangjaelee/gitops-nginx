@@ -6,9 +6,6 @@ metadata:
     version: v1
   name: helloworld-v1
 spec:
-  fallback:
-    failureThreshold: 3
-    replicas: 5
   maxReplicaCount: 20
   minReplicaCount: 5
   scaleTargetRef:
