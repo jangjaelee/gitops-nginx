@@ -2,10 +2,10 @@ apiVersion: gateway.networking.k8s.io/v1beta1
 kind: HTTPRoute
 metadata:
   labels:
-    app: awx-api-test
+    app: helloworld-v1
     environment: dev
     istio: ingressgateway
-  name: awx-api-test-public
+  name: helloworld-v1
 spec:
   hostnames:
     - test-canary.awx.kr
@@ -15,8 +15,12 @@ spec:
   rules:
     - backendRefs:
         - kind: Service
-          name: awx-api-test
+          name: helloworld-service-stable
           port: 80
+    - backendRefs:
+        - kind: Service
+          name: helloworld-service-canary
+          port: 80          
       matches:
         - path:
             type: PathPrefix
