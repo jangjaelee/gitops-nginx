@@ -1,7 +1,6 @@
 apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
 metadata:
-  annotations: {}
   labels:
     app: helloworld
     version: v1
