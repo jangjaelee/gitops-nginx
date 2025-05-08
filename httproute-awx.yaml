@@ -2,7 +2,8 @@ apiVersion: gateway.networking.k8s.io/v1beta1
 kind: HTTPRoute
 metadata:
   labels:
-    app: helloworld-v1
+    app: helloworld
+    version: v1    
     environment: dev
     istio: ingressgateway
   name: helloworld-v1
@@ -15,11 +16,11 @@ spec:
   rules:
     - backendRefs:
         - kind: Service
-          name: helloworld-service-stable
+          name: helloworld-v1-service-stable
           port: 80
     - backendRefs:
         - kind: Service
-          name: helloworld-service-canary
+          name: helloworld-v1-service-canary
           port: 80          
       matches:
         - path:
