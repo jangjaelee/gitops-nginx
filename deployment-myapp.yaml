@@ -3,7 +3,8 @@ kind: Deployment
 metadata:
   labels:
     app: nginx
-  name: myapp-1
+    version: v1
+  name: myapp-v1
 spec:
   selector:
     matchLabels:
@@ -17,6 +18,7 @@ spec:
     metadata:
       labels:
         app: nginx
+        version: v1
     spec:
       containers:
       - image: docker.io/library/nginx
