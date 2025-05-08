@@ -11,7 +11,7 @@ metadata:
   name: helloworld-v1
   namespace: gitops-nginx
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: helloworld
