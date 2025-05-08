@@ -13,4 +13,5 @@ spec:
     protocol: TCP
   selector:
     app: helloworld
+    version: v1    
   type: ClusterIP
