@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: helloworld-v1-service-stable
   labels:
-    app: helloworld-v1
+    app: helloworld
     service: helloworld
 spec:
   ports:
