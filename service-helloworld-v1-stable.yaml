@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: helloworld
+  name: helloworld-v1-service-stable
   labels:
-    app: helloworld
+    app: helloworld-v1
     service: helloworld
 spec:
   ports:
