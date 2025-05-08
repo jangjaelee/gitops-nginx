@@ -14,7 +14,7 @@ spec:
   minReplicaCount: 5
   scaleTargetRef:
     apiVersion: argoproj.io/v1alpha1
-    kind: rollout
+    kind: Rollout
     name: helloworld-v1
   triggers:
     - metadata:
