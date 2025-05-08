@@ -19,6 +19,6 @@ spec:
   triggers:
     - metadata:
         value: '60'
-      metricType: Utilization
+      metricType: AverageValue
       name: T_60__cpu
       type: cpu
