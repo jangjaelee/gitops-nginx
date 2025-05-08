@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: myapp-v1
   labels:
-    app: nginx
+    app: myapp
     version: v1
 spec:
   ports:
@@ -11,6 +11,6 @@ spec:
     port: 80
     targetPort: 80
   selector:
-    app: nginx
+    app: myapp
     version: v1
   type: ClusterIP
