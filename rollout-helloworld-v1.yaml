@@ -1,4 +1,4 @@
-apiVersion: argoproj.io/v1alpha1
+vapiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   annotations:
@@ -18,8 +18,8 @@ spec:
       version: v1
   strategy:
     canary:
-      canaryService: helloworld-service-canary
-      stableService: helloworld-service-stable
+      canaryService: helloworld-v1-service-canary
+      stableService: helloworld-v1-service-stable
       canaryMetadata:
         annotations:
           role: canary
