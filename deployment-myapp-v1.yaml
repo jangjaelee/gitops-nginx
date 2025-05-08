@@ -8,7 +8,8 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: nginx
+      app: myapp
+      version: v1
   strategy:
     rollingUpdate:
       maxSurge: 25%
