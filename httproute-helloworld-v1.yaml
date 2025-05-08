@@ -18,7 +18,6 @@ spec:
         - kind: Service
           name: helloworld-v1-service-stable
           port: 80
-    - backendRefs:
         - kind: Service
           name: helloworld-v1-service-canary
           port: 80          
