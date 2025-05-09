@@ -1,0 +1,20 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  labels:
+    app: helloworld
+    version: v1
+  name: helloworld-v1-test
+spec:
+  maxReplicaCount: 20
+  minReplicaCount: 5
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: helloworld-v1
+  triggers:
+    - metadata:
+        value: '60'
+      metricType: AverageValue
+      name: T_60__cpu
+      type: cpu
