@@ -4,7 +4,7 @@ metadata:
   labels:
     app: helloworld
     version: v1
-  name: keda-hpa-helloworld-v1
+  name: hpa-helloworld-v1
   namespace: gitops-nginx
 spec:
   maxReplicas: 20
