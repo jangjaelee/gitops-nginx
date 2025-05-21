@@ -6,10 +6,10 @@ metadata:
   labels:
     app: myapp
     argocd.argoproj.io/instance: gitops-nginx
+    converted-by: rollout-conversion-extension
     environment: dev
     istio: ingressgateway
     version: v1
-    converted-by: rollout-conversion-extension
   name: myapp-v1
 spec:
   hostnames:
@@ -23,6 +23,9 @@ spec:
           name: myapp-v1
           port: 80
           weight: 100
+        - kind: Service
+          name: myapp-v1-canary
+          port: 80
       matches:
         - path:
             type: PathPrefix
