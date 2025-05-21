@@ -38,8 +38,3 @@ spec:
       #serviceAccount: mynginx
       #serviceAccountName: mynginx
       terminationGracePeriodSeconds: 30
-          resources:
-            requests:
-              cpu: "100m"   # 반드시 설정 필요
-            limits:
-              cpu: "500m"
