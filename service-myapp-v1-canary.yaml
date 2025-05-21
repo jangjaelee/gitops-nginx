@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    argocd.argoproj.io/tracking-id: gitops-nginx:/Service:gitops-nginx/myapp-v1
+  labels:
+    app: myapp
+    argocd.argoproj.io/instance: gitops-nginx
+    version: v1
+    converted-by: rollout-conversion-extension
+  name: myapp-v1-canary
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+  selector:
+    app: myapp
+    version: v1
+  type: ClusterIP
