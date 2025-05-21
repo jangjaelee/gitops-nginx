@@ -1,11 +1,15 @@
 apiVersion: gateway.networking.k8s.io/v1beta1
 kind: HTTPRoute
 metadata:
+  annotations:
+    argocd.argoproj.io/tracking-id: gitops-nginx:gateway.networking.k8s.io/HTTPRoute:gitops-nginx/myapp-v1
   labels:
     app: myapp
-    version: v1    
+    argocd.argoproj.io/instance: gitops-nginx
     environment: dev
     istio: ingressgateway
+    version: v1
+    converted-by: rollout-conversion-extension
   name: myapp-v1
 spec:
   hostnames:
@@ -19,6 +23,9 @@ spec:
           name: myapp-v1
           port: 80
           weight: 100
+        - kind: Service
+          name: myapp-v1-canary
+          port: 80
       matches:
         - path:
             type: PathPrefix
