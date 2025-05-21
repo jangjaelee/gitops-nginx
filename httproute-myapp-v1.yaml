@@ -16,8 +16,9 @@ spec:
   rules:
     - backendRefs:
         - kind: Service
-          name: myapp-v1-service
-          port: 80       
+          name: myapp-v1
+          port: 80
+          weight: 100
       matches:
         - path:
             type: PathPrefix
