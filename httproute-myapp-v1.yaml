@@ -23,9 +23,6 @@ spec:
           name: myapp-v1
           port: 80
           weight: 100
-        - kind: Service
-          name: myapp-v1-canary
-          port: 80
       matches:
         - path:
             type: PathPrefix
