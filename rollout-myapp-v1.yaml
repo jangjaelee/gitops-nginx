@@ -1,1 +1,54 @@
 
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  annotations:
+    argocd.argoproj.io/tracking-id: gitops-nginx:apps/Deployment:gitops-nginx/myapp-v1
+  labels:
+    app: maypp
+    argocd.argoproj.io/instance: gitops-nginx
+    version: v1
+    converted-by: rollout-conversion-extension
+  name: myapp-v1
+  namespace: gitops-nginx
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: myapp
+      version: v1
+  strategy:
+    canary:
+      canaryService: myapp-v1-canary
+      stableService: myapp-v1
+      canaryMetadata:
+        annotations:
+          role: canary
+        labels:
+          role: canary
+      stableMetadata:
+        annotations:
+          role: stable
+        labels:
+          role: stable
+      steps:
+        - setWeight: 10
+        - pause:
+            duration: 30s
+        - setWeight: 30
+        - pause:
+            duration: 1m
+        - setWeight: 100
+      scaleDownDelaySeconds: 30
+      abortScaleDownDelaySeconds: 30
+      dynamicStableScale: false
+      trafficRouting:
+        plugins:
+          argoproj-labs/gatewayAPI:
+            httpRoute: myapp-v1
+            namespace: gitops-nginx
+  workloadRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: myapp-v1
+    scaleDown: onsuccess
