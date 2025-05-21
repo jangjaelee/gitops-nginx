@@ -11,6 +11,7 @@ metadata:
   name: myapp-v1
   namespace: gitops-nginx
 spec:
+  replicas: 5
   selector:
     matchLabels:
       app: myapp
@@ -32,16 +33,10 @@ spec:
       steps:
         - setWeight: 10
         - pause:
+            duration: 30s
+        - setWeight: 30
+        - pause:
             duration: 1m
-        - setWeight: 25
-        - pause:
-            duration: 2m
-        - setWeight: 50
-        - pause:
-            duration: 3m
-        - setWeight: 75
-        - pause:
-            duration: 3m
         - setWeight: 100
       scaleDownDelaySeconds: 30
       abortScaleDownDelaySeconds: 30
