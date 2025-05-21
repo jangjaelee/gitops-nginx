@@ -2,16 +2,16 @@ apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
 metadata:
   labels:
-    app: helloworld
+    app: myapp
     version: v1
-  name: helloworld-v1-test
+  name: myapp-v1
 spec:
   maxReplicaCount: 20
   minReplicaCount: 5
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: helloworld-v1
+    name: myapp-v1
   triggers:
     - metadata:
         value: '60'
